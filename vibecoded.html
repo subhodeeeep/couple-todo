@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Firebase App</title>
+</head>
+<body>
+  <h1>Upload Task</h1>
+  
+  <input type="text" id="taskDesc" placeholder="Enter task description"><br><br>
+  <input type="file" id="taskImg"><br><br>
+  <button onclick="uploadTask()">Upload</button>
+
+  <div id="tasks"></div>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js";
+
+    // 🔹 Your Firebase config (from console)
+    const firebaseConfig = {
+        apiKey: "AIzaSyAAiQqKPGhB-4BtWIlyyLBvN-zVYPkwv8w",
+        authDomain: "couple-todo-69258.firebaseapp.com",
+        projectId: "couple-todo-69258",
+        storageBucket: "couple-todo-69258.firebasestorage.app",
+        messagingSenderId: "745767572553",
+        appId: "1:745767572553:web:f4ed91327663405bcf1b98"
+
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    // Upload task
+    async function uploadTask() {
+      const desc = document.getElementById("taskDesc").value;
+      const file = document.getElementById("taskImg").files[0];
+
+      if (!desc || !file) {
+        alert("Please enter description & choose file");
+        return;
+      }
+
+      // Upload image to storage
+      const storageRef = ref(storage, "tasks/" + file.name);
+      await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(storageRef);
+
+      // Save task in Firestore
+      await addDoc(collection(db, "tasks"), {
+        description: desc,
+        imageUrl: url,
+        createdAt: Date.now()
+      });
+
+      alert("Task uploaded!");
+      loadTasks();
+    }
+
+    // Load tasks
+    async function loadTasks() {
+      const tasksDiv = document.getElementById("tasks");
+      tasksDiv.innerHTML = "";
+      const querySnapshot = await getDocs(collection(db, "tasks"));
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        tasksDiv.innerHTML += `<p>${data.description}<br><img src="${data.imageUrl}" width="200"></p>`;
+      });
+    }
+
+    // Load tasks on page load
+    loadTasks();
+  </script>
+</body>
+</html>

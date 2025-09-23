@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+}
+main{
+    margin: auto;
+    height: 70vh;
+    width: 520px;
+    border-radius: 30px;
+    background-image: linear-gradient(rgb(5, 1, 1), blue);
+    padding: 20px 50px;
+    overflow-y: scroll;
+}
+header{
+    backdrop-filter: blur(10px);
+    width: 70vw;
+    position: sticky; 
+    top: 0;
+}
+h1{
+    font-family: Bitcount Ink;
+    color: black;
+}
+input{
+    height: 15px;
+
+}
+h2{
+    color: white;
+}
+p{
+    color: grey;
+}
+li{
+    margin-top: 100px;
+}
+.listItems{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 100px;
+}
+img{
+    height: 300px;
+}

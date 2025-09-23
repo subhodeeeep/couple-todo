@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Couple Bucket List</title>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js"></script>
+    
+</head>
+<body>
+    <main id="child">
+        <header>
+            <div class="fixed">
+                
+                <h1>Bucket List</h1>
+                <div class="userInputs">
+                    <input id="taskName">
+                    <input id="taskDesc">
+                    <label for="taskImg"><img  src="upload-icon.png"  style="height: 20px;" alt="Upload Image"></label>
+                    <input type="file" id="taskImg" style="display: none;" accept="image/*">
+                    <button onclick="upload()">Upload</button>
+                </div>
+            </div>
+        </header>
+        <li class="listItems">
+            <ul>
+                <div class="column">
+                    <h2>
+                        List Item
+                    </h2>
+                    <p>
+                        Item description
+                    </p>
+                </div>
+                <img src="macha.jpg" alt="list item">
+            </ul>
+        </li>
+    </main>
+   <script type="module" src="script.js"></script>
+
+      
+</body>
+</html>

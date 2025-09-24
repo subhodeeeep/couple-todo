@@ -1,47 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&display=swap');
-
+:root{
+    --primary-bg: linear-gradient( #ffffff, #ffdddd);
+    --primary-button: #8c2f39;
+}
+@font-face {
+  font-family: inter;
+  src: url('./fonts/Inter.ttf');
+}
 *{
     margin: 0;
     padding: 0;
     scrollbar-width: none;
+    font-family: inter;
 }
-main{
-    margin: auto;
-    height: 70vh;
-    width: 520px;
-    border-radius: 30px;
-    background-image: linear-gradient(rgb(5, 1, 1), blue);
-    padding: 20px 50px;
+section{
+    background-image: var(--primary-bg);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
     overflow-y: scroll;
 }
-header{
-    backdrop-filter: blur(10px);
-    width: 70vw;
-    position: sticky; 
+nav{
+    position: sticky;
     top: 0;
+    background-color: white;
 }
-h1{
-    font-family: Bitcount Ink;
-    color: black;
+nav li{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 10px 20px 10px;
 }
-input{
-    height: 15px;
-
+nav img{
+    height: 20px;
 }
-h2{
-    color: white;
+main{
+    display: grid;
+    justify-content: center;
+    max-width: 100vw;
 }
-p{
-    color: grey;
+.subhosha{
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+    margin: 24px 0px 20px 0px;
+    border-radius: 20px;
 }
 li{
-    margin-top: 100px;
+    list-style: none;
 }
-.listItems{
+.to-do-box{
+    height: 100px;
+    width: 100%;
+    background-color: var(--primary-button);
+    border-radius: 20px;
+
+}
+.to-do-box p{
+    padding: 24px 0px 12px 20px;
+    color: #ffffff;
+}
+.to-do-box svg:first-child{
+    height: 20px;
+    fill: #ffffff;
+}
+.to-do-box svg:nth-child(2){
+    height: 20px;
+    fill: #cd5858;
+}
+.clickables{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+.to-do-list{
     display: grid;
-    grid-template-columns: auto auto;
-    margin-top: 100px;
-}
-img{
-    height: 300px;
+    margin-top: 12px;
+    gap: 4px;
 }

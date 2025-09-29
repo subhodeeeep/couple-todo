@@ -1,6 +1,8 @@
 :root{
     --primary-bg: linear-gradient( #ffffff, #ffdddd);
     --primary-button: #8c2f39;
+    --primary-grey: #d9d9d9;
+    --secondary-grey: #2c2c2c
 }
 @font-face {
   font-family: inter;
@@ -11,6 +13,16 @@
     padding: 0;
     scrollbar-width: none;
     font-family: inter;
+    z-index: 0;
+}
+a{
+    text-decoration: inherit;
+    color: inherit;
+}
+button{
+    text-decoration: inherit;
+    background-color: inherit;
+    border: inherit;
 }
 section{
     background-image: var(--primary-bg);
@@ -24,13 +36,14 @@ nav{
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 100;
 }
-nav li{
+nav ul{
     display: flex;
     justify-content: space-around;
     padding: 40px 10px 20px 10px;
 }
-nav img{
+nav svg{
     height: 20px;
 }
 main{
@@ -45,7 +58,7 @@ main{
     margin: 24px 0px 20px 0px;
     border-radius: 20px;
 }
-li{
+ul{
     list-style: none;
 }
 .to-do-box{
@@ -76,4 +89,42 @@ li{
     display: grid;
     margin-top: 12px;
     gap: 4px;
+}
+
+form{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    max-width: 70vw;
+}
+form button, form input{
+    height: 65px;
+    border-radius: 24px;
+    font-size: medium;
+}
+form button{
+    background-color: var(--secondary-grey);
+    color:  rgb(232, 231, 231);
+}
+form input{
+    background-color: var(--primary-grey);
+    outline: none;
+    border: none;
+    color: var(--secondary-grey);
+    padding-left: 24px;
+}
+form p{
+    font-size: 24px;
+    text-align: center;
+}
+.cross img{
+    rotate: 45deg;
+}
+
+.done-p{
+    line-height: 80vh;
+    align-items: center;
+    z-index: 0;
 }

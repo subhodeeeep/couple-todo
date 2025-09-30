@@ -13,7 +13,7 @@
     padding: 0;
     scrollbar-width: none;
     font-family: inter;
-    z-index: 0;
+    animation: all 2s linear;
 }
 a{
     text-decoration: inherit;
@@ -35,13 +35,15 @@ section{
 nav{
     position: sticky;
     top: 0;
-    background-color: white;
+    background-color: #fffefe;
     z-index: 100;
 }
-nav ul{
+nav {
     display: flex;
     justify-content: space-around;
     padding: 40px 10px 20px 10px;
+    max-width: 340px;
+    margin: auto;
 }
 nav svg{
     height: 20px;

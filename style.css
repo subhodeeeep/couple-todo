@@ -45,6 +45,10 @@ nav {
     max-width: 340px;
     margin: auto;
 }
+nav a{
+    transition: opacity 0.4s ease, transform 0.4s ease;
+
+}
 nav svg{
     height: 20px;
 }
@@ -52,6 +56,8 @@ main{
     display: grid;
     justify-content: center;
     max-width: 100vw;
+    /* transition: transform 0.4s ease; */
+
 }
 .subhosha{
     height: 200px;
@@ -130,3 +136,16 @@ form p{
     align-items: center;
     z-index: 0;
 }
+
+/* animations */
+/* .slide-out-left {
+  transform: translateX(-100%);
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+}
+
+.slide-in-center {
+  transform: translateX(0);
+} */
